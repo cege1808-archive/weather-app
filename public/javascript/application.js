@@ -29,7 +29,7 @@ $(document).ready(function() {
     autocomplete();
   });
 
-  $("display").on('click', 'p', function(){
+  $(".display").on('click', 'p', function(){
     console.log("clicked city");
   });
 
