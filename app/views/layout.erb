@@ -6,19 +6,28 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/stylesheets/normalize.css">
+  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
   <!--
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/stylesheets/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascript/vendor/bootstrap.min.js"></script>
   <script src="/javascript/application.js"></script>
 
-  <title></title>
+  <title>Weather App</title>
+  <meta charset=UTF-8>
+  <meta name="viewport" content="width=device-width, 
+          initial-scale=1.0
+          maximum-scale=1.0
+          user-scalable=no">
+
 </head>
 <body>
-  <%= yield %>
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
 </body>
 </html>
 
