@@ -1,4 +1,8 @@
-.display p {
+.searchList span {
   cursor:pointer;
+  
+}
+
+.searchList p {
   padding: 5px;
 }

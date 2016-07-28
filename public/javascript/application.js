@@ -4,7 +4,7 @@ $(document).ready(function() {
     keyword = $("input").val();
     console.log(keyword);
     if (keyword == ""){
-      $(".display").children().remove();
+      $(".searchList").children().remove();
     }
     else {
       $.ajax({
@@ -14,11 +14,11 @@ $(document).ready(function() {
         dataType: 'jsonp',
         success: function(data){
           result = data.RESULTS;
-          $(".display").children().remove();
+          $(".searchList").children().remove();
           // console.log(data.RESULTS);
           $.each(result, function(index, res){
             console.log(res.name);
-            $(".display").append("<p>"+ res.name +"</p>");
+            $(".searchList").append("<p><span>"+ res.name +"</span></p>");
           })
         }
       });
@@ -29,8 +29,9 @@ $(document).ready(function() {
     autocomplete();
   });
 
-  $(".display").on('click', 'p', function(){
-    console.log("clicked city");
+  $(".searchList").on('click', 'span', function(){
+    var query = $(this).text();
+    console.log("clicked " + query);
   });
 
 });
