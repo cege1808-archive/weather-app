@@ -13,13 +13,17 @@ $(document).ready(function() {
         jsonp: 'cb',
         dataType: 'jsonp',
         success: function(data){
+          console.log(data);
           result = data.RESULTS;
+          //TODO filter with key value current_observation
           $(".searchList").children().remove();
-          // console.log(result);
+          console.log(result);
           $.each(result, function(index, res){
             // console.log(res.name);
-            // console.log(res);
+            console.log(res);
+            if(res.type == "city"){
             $(".searchList").append("<p><span data-query='" + res.zmw +"'>"+ res.name +"</span></p>");
+            }
           })
         }
       });
@@ -40,15 +44,14 @@ $(document).ready(function() {
   }
 
   function displayCondition(observation){
-    console.log(observation.weather);
-    console.log(observation.temp_c);
-    console.log(observation.icon_url);
-
-    var weather = "<p>" + observation.weather + "</p>";
-    var temperatureC = "<p>" + observation.temp_c + "</p>";
-    var icon = "<img src='" + observation.icon_url + "'/>";
     var $display = $(".displayWeather");
-
+    $display.children().remove();
+    var location = "<p>" + observation.display_location.full + "</p>";
+    var weather = "<p>" + observation.weather + "</p>";
+    var temperatureC = "<p>" + observation.temp_c + " &deg;C</p>";
+    var icon = "<img src='" + observation.icon_url + "'/>";
+    
+    $display.append(location);
     $display.append(weather);
     $display.append(temperatureC);
     $display.append(icon);
@@ -64,5 +67,9 @@ $(document).ready(function() {
     console.log("clicked " + query);
     getCondition(query);
   });
+
+  $("span").on('click', function(){
+    $("nav").toggleClass("toggled");
+  })
 
 });

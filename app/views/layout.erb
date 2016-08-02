@@ -6,15 +6,26 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
-  
+ <!--  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap.min.css">
+  <link href="/stylesheets/vendor/navbar-fixed-side.css" rel="stylesheet" /> -->
+<!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.1.0/css/bulma.min.css">
+ -->
   <!--
     application.css is where you put your styles
   -->
+    <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
   <link rel="stylesheet" href="/stylesheets/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/javascript/vendor/bootstrap.min.js"></script>
+  <<!-- script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/javascript/vendor/bootstrap.min.js"></script> -->
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
   <script src="/javascript/application.js"></script>
 
   <title>Weather App</title>
@@ -26,8 +37,8 @@
 
 </head>
 <body>
-  <div class="container-fluid">
-    <%= yield %>
+  <div class="jumbotron">
+      <%= yield %>
   </div>
 </body>
 </html>
