@@ -1,6 +1,3 @@
-*{
-  font-size: 15px;
-}
 
 .searchList span {
   cursor:pointer;
@@ -11,22 +8,21 @@
   padding: 5px;
 }
 
-.jumbotron{
-  height:100vh;
-}
-
-.navbar {
-  top: 0px;
-  left: -12%;
-  text-align: right;
-  transition: all 1s ease;
-}
-
-.navbar.toggled {
-  left: initial;
-  transition: all 1s ease;
-}
-
 .content {
   text-align: center;
+}
+
+.container, .row{
+  position: absolute;
+  left:0px;
+  top:70px;
+  width: 100%;
+  height:100%;
+  text-align: center;
+}
+
+.searchList {
+  position: relative;
+  text-align: center;
+  z-index: 1;
 }
