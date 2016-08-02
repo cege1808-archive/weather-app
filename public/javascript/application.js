@@ -21,6 +21,7 @@ $(document).ready(function() {
           $.each(result, function(index, res){
             // console.log(res.name);
             console.log(res);
+
             if(res.type == "city"){
             $(".searchList").append("<p><span data-query='" + res.zmw +"'>"+ res.name +"</span></p>");
             }
@@ -38,7 +39,12 @@ $(document).ready(function() {
       dataType: 'jsonp',
       success: function(data){
         console.log(data);
-        displayCondition(data.current_observation);
+        // displayCondition(data.current_observation);
+        $("h1").hide();
+        var source = $("#results-template").html();
+        var template = Handlebars.compile(source);
+        var input = template(data.current_observation);
+        $(".displayWeather").html(input);
       }
     });
   }
@@ -46,6 +52,7 @@ $(document).ready(function() {
   function displayCondition(observation){
     var $display = $(".displayWeather");
     $display.children().remove();
+
     var location = "<p>" + observation.display_location.full + "</p>";
     var weather = "<p>" + observation.weather + "</p>";
     var temperatureC = "<p>" + observation.temp_c + " &deg;C</p>";
@@ -66,10 +73,12 @@ $(document).ready(function() {
     var query = $(this).data("query");
     console.log("clicked " + query);
     getCondition(query);
+    $("input").val("");
+    $(".searchList").children().remove();
   });
 
   $("span").on('click', function(){
-    $("nav").toggleClass("toggled");
+    $("input").val("");
   })
 
 });

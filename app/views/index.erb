@@ -1,31 +1,42 @@
-<nav role="navigation">
-  <div class="nav-wrapper">
-    <form>
-      <div class="input-field">
-        <input type="search" name="keyword" required>
-        <label for="keyword"><i class="material-icons">search</i></label>
-        <i class="material-icons">close</i>
-      </div>
-    </form>
-
-  </div>
-</nav>
-
-<div class="container">
-
-  <div class="searchList"></div>
-  <div class="row">
-    <h1>Rain or Shine</h1>
-    <div class="content">
-
-      <div class="valign-wrapper">
-        <div class="valign card">
-          <div class="displayWeather"></div>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input type="search" name="keyword" required>
+          <label for="keyword"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
         </div>
+      </form>
 
-      </div>
+    </div>
+  </nav>
+</div>
+<div class="section no-pad-bot">
+  <div class="container">
+
+    <div class="row">
+      <div class="searchList"></div>
+      <h1 class="header center pink-text">Rain or Shine</h1>
+      <div class="displayWeather"></div>
     </div>
 
-  </div>
+    <script id="results-template" type="text/x-handlebars-template">
+      <div class="card">
+       <div class="card-content">
+        <p>{{display_location.full}}</p>
+        <p>{{weather}}</p>
+        <p>{{temp_c}} &deg;C</p>
+
+      </div>
+      <div class="card-image">
+        <img src="{{icon_url}}" />
+      </div>
+
+    </div>
+  </script>
+
 </div>
+</div>
+
 

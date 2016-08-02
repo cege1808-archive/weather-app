@@ -8,21 +8,34 @@
   padding: 5px;
 }
 
-.content {
+.container{
+  z-index: 0;
+  left:0px;
+  top:0px;
+  height:100vh;
   text-align: center;
+  position: relative;
 }
 
-.container, .row{
-  position: absolute;
-  left:0px;
-  top:70px;
-  width: 100%;
-  height:100%;
-  text-align: center;
+.container h1 {
+  top: 70px;
 }
+
 
 .searchList {
-  position: relative;
+  position: absolute;
   text-align: center;
-  z-index: 1;
+  z-index: 2;
+  background-color: white;
+  width: 50%;
+  left: 25%;
+}
+
+.card {
+  /*background-color: blue;*/
+}
+
+.row {
+  text-align: center;
+  position: relative;
 }
