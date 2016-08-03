@@ -4,19 +4,18 @@ configure :development do
 end
 
 configure :development, :test do
-  set :database, {
-    'development' => {
-      'adapter' => 'sqlite3',
-      'database' => APP_ROOT.join('db', 'development.sqlite3')
-    },
-    'test' => {
-      'adapter' => 'sqlite3',
-      'database' => APP_ROOT.join('db', 'test.sqlite3')
-    }
-  }
-end
+  if development?
+    set :database, {
+      'development' => {
+        'adapter' => 'sqlite3',
+        'database' => APP_ROOT.join('db', 'development.sqlite3')
+      }
+    else
+      set :database, ENV['DATABASE_URL']
+    end
+  end
 
-configure :production do
+  configure :production do
   # Database connection is configured automatically based on the DATABASE_URL
   # environment variable. This is a feature of sinatra/activerecord support.
   #
