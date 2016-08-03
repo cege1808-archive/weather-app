@@ -79,7 +79,6 @@ $(document).ready(function() {
         $(".card").show();
         $(".displayWeather").html(input_direct);
         $(".placeholder-icon").html(input_convert);
-        $(".placeholder-icon").addClass("styled");
       }
     });
   }
