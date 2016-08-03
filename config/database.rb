@@ -10,6 +10,7 @@ configure :development, :test do
         'adapter' => 'sqlite3',
         'database' => APP_ROOT.join('db', 'development.sqlite3')
       }
+    }
     else
       set :database, ENV['DATABASE_URL']
     end
