@@ -1,7 +1,25 @@
+.nav-wrapper {
+  width: 90%;
+  display: inline-block;
+}
+
+.fa {
+  font-size: 38px;
+  line-height: 64px;
+}
+
+a {
+  margin-right: 60px;
+  float:right;
+  display: inline-block;
+}
+
+.clear{
+  clear:both;
+}
 
 .searchList span {
   cursor:pointer;
-  
 }
 
 .searchList p {
@@ -17,25 +35,90 @@
   position: relative;
 }
 
-.container h1 {
-  top: 70px;
-}
-
-
 .searchList {
   position: absolute;
   text-align: center;
   z-index: 2;
   background-color: white;
-  width: 50%;
-  left: 25%;
+  width: 60%;
+  left: 20%;
+}
+
+.row.title {
+  text-align: center;
+  position: relative;
+  margin-top: 25%; 
+}
+
+.row.info, .row.search {
+  margin-top: 20px; 
+  margin-bottom: 50px;
 }
 
 .card {
-  /*background-color: blue;*/
+  padding: 60px;
+  height: 400px;
 }
 
-.row {
-  text-align: center;
-  position: relative;
+.wi {
+  font-size: 120px;
+  margin-top: 50px;
 }
+
+.material-icons.right {
+  padding: 0 10px;
+}
+
+.material-icons.right.main {
+  padding: 20px 0;
+}
+
+.activator {
+  cursor:pointer;
+}
+
+.temp > h1, h4{
+  display: inline-block;
+}
+
+.card-content.col.s12 {
+  padding-top: 35px;
+}
+
+.col.s6.temp {
+  padding-left: 0px;
+  padding-right: 50px;
+}
+
+.col.s6.icon {
+  padding-top: 25px;
+  padding-left: 50px;
+  padding-right: 0px;
+}
+
+.valign.top {
+  display: block;
+  margin-top: 38px;
+}
+
+.valign > h4 {
+  font-size: 27px;
+  font-weight: thin;
+  display: inline-block;
+}
+
+.valign > h5 {
+  font-size: 25px;
+  display: inline-block;
+}
+
+.card-title {
+  display: inline-block;
+  margin-left:-220px;
+  margin-top: -30px;
+}
+
+.card-title i {
+  margin-top: 30px;
+}
+
