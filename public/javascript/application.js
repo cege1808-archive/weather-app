@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
     else {
       $.ajax({
-        url: 'http://autocomplete.wunderground.com/aq?query=' + keyword,
+        url: 'https://autocomplete.wunderground.com/aq?query=' + keyword,
         method: 'GET',
         jsonp: 'cb',
         dataType: 'jsonp',
@@ -57,7 +57,7 @@ $(document).ready(function() {
 
   function getCondition(query){
     $.ajax({
-      url: 'http://api.wunderground.com/api/500a16a262073dee/conditions/q/zmw:' + query + '.json',
+      url: 'https://api.wunderground.com/api/500a16a262073dee/conditions/q/zmw:' + query + '.json',
       method: 'GET',
       jsonp: 'callback',
       dataType: 'jsonp',
