@@ -1,5 +1,29 @@
 $(document).ready(function() {
 
+  var api_convert = {
+    "chanceflurries":"snow-wind",
+    "chancerain": "rain",
+    "chancesleat": "sleet",
+    "chancesnow": "snow",
+    "chancetstorms": "thunderstorm",
+    "clear": "day-sunny",
+    "cloudy": "day-cloudy",
+    "flurries": "snow-wind",
+    "hazy": "day-haze",
+    "mostlycloudy": "day-cloudy",
+    "mostlysunny": "day-sunny",
+    "partlycloudy": "day-cloudy",
+    "partlysunny": "day-sunny",
+    "rain": "showers",
+    "sleat": "sleet",
+    "snow": "snow",
+    "sunny": "day-sunny",
+    "tstorms": "thunderstorm",
+    "unknown": "day-sunny"
+  }
+
+  $(".card").hide();
+
   function autocomplete(){
     keyword = $("input").val();
     console.log(keyword);
@@ -15,11 +39,11 @@ $(document).ready(function() {
         success: function(data){
           console.log(data);
           result = data.RESULTS;
-          //TODO filter with key value current_observation
+          
           $(".searchList").children().remove();
           console.log(result);
           $.each(result, function(index, res){
-            // console.log(res.name);
+        
             console.log(res);
 
             if(res.type == "city"){
@@ -40,30 +64,25 @@ $(document).ready(function() {
       success: function(data){
         console.log(data);
         // displayCondition(data.current_observation);
-        $("h1").hide();
-        var source = $("#results-template").html();
-        var template = Handlebars.compile(source);
-        var input = template(data.current_observation);
-        $(".displayWeather").html(input);
+        $(".row.title").hide();
+        var source_direct = $("#results-template").html();
+        var template_direct = Handlebars.compile(source_direct);
+        var input_direct = template_direct(data.current_observation);
+        var source_convert =$("#icon-template").html();
+        var template_convert = Handlebars.compile(source_convert);
+        console.log(data.current_observation.icon);
+        var content = api_convert[data.current_observation.icon];
+        console.log(content);
+        var input_convert = template_convert({
+          "icon": content
+        });
+        $(".card").show();
+        $(".displayWeather").html(input_direct);
+        $(".placeholder-icon").html(input_convert);
+        $(".placeholder-icon").addClass("styled");
       }
     });
   }
-
-  function displayCondition(observation){
-    var $display = $(".displayWeather");
-    $display.children().remove();
-
-    var location = "<p>" + observation.display_location.full + "</p>";
-    var weather = "<p>" + observation.weather + "</p>";
-    var temperatureC = "<p>" + observation.temp_c + " &deg;C</p>";
-    var icon = "<img src='" + observation.icon_url + "'/>";
-    
-    $display.append(location);
-    $display.append(weather);
-    $display.append(temperatureC);
-    $display.append(icon);
-  }
-
 
   $("input").on('keyup', function(){
     autocomplete();
