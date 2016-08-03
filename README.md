@@ -1,7 +1,6 @@
-Sinatra
+Rain or Shine
 =============
-
-Brought to you by Lighthouse Labs
+Another weather app, integrated through Weather Underground API.
 
 ## Getting Started
 
